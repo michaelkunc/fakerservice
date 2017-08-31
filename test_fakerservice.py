@@ -23,5 +23,11 @@ class FakerServiceTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(10, len(json.loads(response.get_data(as_text=True))))
 
+    def test_addresses_return_unique_results(self):
+        response = self.client().get('/addresses/?quantity=2')
+        data = json.loads(response.get_data(as_text=True))
+        self.assertEqual(response.status_code, 200)
+        self.assertFalse(data[0] == data[1])
+
 if __name__ == '__main__':
     unittest.main()
