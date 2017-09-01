@@ -1,5 +1,4 @@
 import unittest
-import os
 import json
 from app import create_app
 
@@ -7,7 +6,9 @@ from app import create_app
 endpoints = {'addresses': {'url': '/addresses/',
                            'properties': ['city', 'state_prov', 'postal_code', 'country', 'street_address']},
              'companies': {'url': '/companies/',
-                           'properties': ['company_name']}}
+                           'properties': ['company_name', 'slogan']},
+             'license_plates': {'url': '/license_plates/', 'properties': ['license_plate']},
+             'people': {'url': '/people/', 'properties': ['address', 'birthdate', 'company', 'mail', 'name', 'job']}}
 
 
 class FakerServiceTestCase(unittest.TestCase):
@@ -23,7 +24,7 @@ class FakerServiceTestCase(unittest.TestCase):
         length = len(json.loads(response.get_data(as_text=True)))
         return {'response': response, 'keys': keys, 'length': length, 'data': data, 'status_code': response.status_code}
 
-    def endpoint_test(self, url, properties):
+    def case(self, url, properties):
         response = self.payload(url)
         self.assertEqual(response['status_code'], 200)
         self.assertEqual(100, response['length'])
@@ -34,12 +35,21 @@ class FakerServiceTestCase(unittest.TestCase):
         self.assertEqual(10, response['length'])
 
     def test_addresses(self):
-        self.endpoint_test(
+        self.case(
             endpoints['addresses']['url'], endpoints['addresses']['properties'])
 
     def test_companies(self):
-        self.endpoint_test(endpoints['companies']['url'], endpoints[
-                           'companies']['properties'])
+        self.case(endpoints['companies']['url'], endpoints[
+            'companies']['properties'])
+
+    def test_license_plates(self):
+        self.case(endpoints['license_plates']['url'], endpoints[
+            'license_plates']['properties'])
+
+    def test_people(self):
+        self.case(endpoints['people']['url'], endpoints[
+            'people']['properties'])
+
 
 if __name__ == '__main__':
     unittest.main()
