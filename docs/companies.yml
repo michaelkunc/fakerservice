@@ -1,0 +1,20 @@
+Returns a list of fake companies.
+---
+parameters:
+  - name: quantity
+    in: path
+    type: integer
+    required: false
+    default: 100
+    description: Number of results to return
+definitions:
+  Companies:
+    type: object
+responses:
+  200:
+    description: A list of companies.
+    schema:
+      $ref: '#/definitions/Companies'
+    examples:
+      company_name: "Moore-Wolfe Group"
+      slogan: "Inverse encompassing help-desk"

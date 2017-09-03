@@ -4,6 +4,7 @@ decorator==4.1.2
 dnspython==1.15.0
 email-validator==1.0.2
 Faker==0.8.1
+flasgger==0.6.6
 Flask==0.12.2
 Flask-API==1.0
 idna==2.6
@@ -12,13 +13,16 @@ ipython-genutils==0.2.0
 itsdangerous==0.24
 jedi==0.10.2
 Jinja2==2.9.6
+jsonschema==2.6.0
 MarkupSafe==1.0
+mistune==0.7.4
 pexpect==4.2.1
 pickleshare==0.7.4
 prompt-toolkit==1.0.15
 ptyprocess==0.5.2
 Pygments==2.2.0
 python-dateutil==2.6.1
+PyYAML==3.12
 simplegeneric==0.8.1
 six==1.10.0
 traitlets==4.3.2

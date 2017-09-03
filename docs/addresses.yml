@@ -1,0 +1,23 @@
+Returns a list of fake addresses
+---
+parameters:
+  - name: quantity
+    in: path
+    type: integer
+    required: false
+    default: 100
+    description: Number of results to return
+definitions:
+  Addresses:
+    type: object
+responses:
+  200:
+    description: A list of addresses.
+    schema:
+      $ref: '#/definitions/Addresses'
+    examples:
+      city: 'Port Sara'
+      country: "Netherlands Antilles"
+      postal_code: "90408" 
+      state_prov: "PR" 
+      street_address: "60020 Hendricks Forest"
