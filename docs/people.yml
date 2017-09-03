@@ -1,0 +1,24 @@
+Returns a list of fake people.
+---
+parameters:
+  - name: quantity
+    in: path
+    type: integer
+    required: false
+    default: 100
+    description: Number of results to return
+definitions:
+  people:
+    type: object
+responses:
+  200:
+    description: A list of people.
+    schema:
+      $ref: '#/definitions people'
+    examples:
+      address: "94116 Matthew Burg Apt. 673\nCalebton, AK 48112-4077"
+      birthdate: "2002-01-12" 
+      company: "Mitchell Group" 
+      job: "Geologist, engineering" 
+      mail: "tanderson@yahoo.com" 
+      name: "Alice Mcmahon"
