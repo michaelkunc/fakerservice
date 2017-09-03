@@ -50,6 +50,10 @@ class FakerServiceTestCase(unittest.TestCase):
         self.case(endpoints['people']['url'], endpoints[
             'people']['properties'])
 
+    def test_docs(self):
+        response = self.client().get('/apidocs/#')
+        self.assertEqual(200, response.status_code)
+
 
 if __name__ == '__main__':
     unittest.main()
