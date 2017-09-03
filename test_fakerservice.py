@@ -1,14 +1,17 @@
 import unittest
 import json
 from app import create_app
+import collections
 
-
-endpoints = {'addresses': {'url': '/addresses/',
-                           'properties': ['city', 'state_prov', 'postal_code', 'country', 'street_address']},
-             'companies': {'url': '/companies/',
-                           'properties': ['company_name', 'slogan']},
-             'license_plates': {'url': '/license_plates/', 'properties': ['license_plate']},
-             'people': {'url': '/people/', 'properties': ['address', 'birthdate', 'company', 'mail', 'name', 'job']}}
+Endpoint = collections.namedtuple('Endpoint', 'url properties')
+addresses = Endpoint(url='/addresses/',
+                     properties=('city', 'state_prov', 'postal_code', 'country', 'street_address'))
+companies = Endpoint(url='/companies/',
+                     properties=('company_name', 'slogan'))
+license_plates = Endpoint(url='/license_plates/',
+                          properties=(['license_plate']))
+people = Endpoint(url='/people/',
+                  properties=('address', 'birthdate', 'company', 'mail', 'name', 'job'))
 
 
 class FakerServiceTestCase(unittest.TestCase):
@@ -35,20 +38,16 @@ class FakerServiceTestCase(unittest.TestCase):
         self.assertEqual(10, response['length'])
 
     def test_addresses(self):
-        self.case(
-            endpoints['addresses']['url'], endpoints['addresses']['properties'])
+        self.case(addresses.url, addresses.properties)
 
     def test_companies(self):
-        self.case(endpoints['companies']['url'], endpoints[
-            'companies']['properties'])
+        self.case(companies.url, companies.properties)
 
     def test_license_plates(self):
-        self.case(endpoints['license_plates']['url'], endpoints[
-            'license_plates']['properties'])
+        self.case(license_plates.url, license_plates.properties)
 
     def test_people(self):
-        self.case(endpoints['people']['url'], endpoints[
-            'people']['properties'])
+        self.case(people.url, people.properties)
 
     def test_docs(self):
         response = self.client().get('/apidocs/#')
