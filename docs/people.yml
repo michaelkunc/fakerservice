@@ -1,7 +1,7 @@
 Returns a list of fake people.
 ---
 parameters:
-  - name: quantity
+  - name: limit
     in: path
     type: integer
     required: false

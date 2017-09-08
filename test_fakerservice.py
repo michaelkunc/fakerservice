@@ -34,9 +34,9 @@ class FakerServiceTestCase(unittest.TestCase):
         self.assertEqual(
             set(properties), response['keys'])
         self.assertTrue(response['data'][0] != response['data'][1])
-        response = self.payload("{}?quantity=10".format(url))
+        response = self.payload("{}?limit=10".format(url))
         self.assertEqual(10, response['length'])
-        response = self.payload("{}?quantity=5001".format(url))
+        response = self.payload("{}?limit=5001".format(url))
         self.assertEqual(100, response['length'])
 
     def test_addresses(self):

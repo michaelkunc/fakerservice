@@ -26,9 +26,9 @@ def create_app(config_name):
         response.status_code = 200
         return response
 
-    def _quantity():
+    def _limit():
         max_records = 5000
-        requested_records = int(request.args.get('quantity', 100))
+        requested_records = int(request.args.get('limit', 100))
         if requested_records <= max_records:
             return range(0, requested_records)
         else:
@@ -40,23 +40,23 @@ def create_app(config_name):
         return _response([{'street_address': data.street_address(),
                            'city': data.city(), 'state_prov': data.state_abbr(),
                            'postal_code': data.postalcode(), 'country': data.country()}
-                          for i in _quantity()])
+                          for i in _limit()])
 
     @app.route(companies.url, methods=['GET'])
     @swag_from(companies.docs)
     def companies():
         return _response([{'company_name': '{0} {1}'.format(data.company(), data.company_suffix()),
                            'slogan': data.catch_phrase()}
-                          for i in _quantity()])
+                          for i in _limit()])
 
     @app.route(license_plates.url, methods=['GET'])
     @swag_from(license_plates.docs)
     def license_plates():
-        return _response([{'license_plate': data.license_plate()} for i in _quantity()])
+        return _response([{'license_plate': data.license_plate()} for i in _limit()])
 
     @app.route(people.url, methods=['GET'])
     @swag_from(people.docs)
     def people():
-        return _response([data.profile(fields=['address', 'birthdate', 'company', 'job', 'mail', 'name']) for i in _quantity()])
+        return _response([data.profile(fields=['address', 'birthdate', 'company', 'job', 'mail', 'name']) for i in _limit()])
 
     return app
