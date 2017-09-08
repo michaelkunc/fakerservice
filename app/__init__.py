@@ -27,7 +27,12 @@ def create_app(config_name):
         return response
 
     def _quantity():
-        return range(0, int(request.args.get('quantity', 100)))
+        max_records = 5000
+        requested_records = int(request.args.get('quantity', 100))
+        if requested_records <= max_records:
+            return range(0, requested_records)
+        else:
+            return range(0, 100)
 
     @app.route(addresses.url, methods=['GET'])
     @swag_from(addresses.docs)
