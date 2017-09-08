@@ -2,11 +2,11 @@ from flask_api import FlaskAPI
 from flask import jsonify, request
 from faker import Faker
 from flasgger import Swagger, swag_from
-import collections
 
 data = Faker()
 
 from instance.config import app_config
+from app import endpoints
 
 
 def create_app(config_name):
@@ -14,12 +14,6 @@ def create_app(config_name):
     app.config.from_object(app_config[config_name])
     app.config.from_pyfile('config.py')
     swagger = Swagger(app)
-    Endpoint = collections.namedtuple('Endpoint', 'url docs')
-    addresses = Endpoint(url='/addresses/', docs='../docs/addresses.yml')
-    companies = Endpoint(url='/companies/', docs='../docs/companies.yml')
-    license_plates = Endpoint(url='/license_plates/',
-                              docs='../docs/license_plates.yml')
-    people = Endpoint(url='/people/', docs='../docs/people.yml')
 
     def _response(results):
         response = jsonify(results)
@@ -34,29 +28,30 @@ def create_app(config_name):
         else:
             return range(0, 100)
 
-    @app.route(addresses.url, methods=['GET'])
-    @swag_from(addresses.docs)
+    @app.route(endpoints.addresses.url, methods=['GET'])
+    @swag_from(endpoints.addresses.docs)
     def addresses():
         return _response([{'street_address': data.street_address(),
                            'city': data.city(), 'state_prov': data.state_abbr(),
-                           'postal_code': data.postalcode(), 'country': data.country()}
-                          for i in _limit()])
+                           'postal_code': data.postalcode(), 'country': data.country()} for i in _limit()])
 
-    @app.route(companies.url, methods=['GET'])
-    @swag_from(companies.docs)
+    @app.route(endpoints.companies.url, methods=['GET'])
+    @swag_from(endpoints.companies.docs)
     def companies():
         return _response([{'company_name': '{0} {1}'.format(data.company(), data.company_suffix()),
                            'slogan': data.catch_phrase()}
                           for i in _limit()])
 
-    @app.route(license_plates.url, methods=['GET'])
-    @swag_from(license_plates.docs)
+    @app.route(endpoints.license_plates.url, methods=['GET'])
+    @swag_from(endpoints.license_plates.docs)
     def license_plates():
-        return _response([{'license_plate': data.license_plate()} for i in _limit()])
+        return _response([{'license_plate': data.license_plate()} for i in
+                          _limit()])
 
-    @app.route(people.url, methods=['GET'])
-    @swag_from(people.docs)
+    @app.route(endpoints.people.url, methods=['GET'])
+    @swag_from(endpoints.people.docs)
     def people():
-        return _response([data.profile(fields=['address', 'birthdate', 'company', 'job', 'mail', 'name']) for i in _limit()])
+        return _response([data.profile(fields=['address', 'birthdate',
+                                               'company', 'job', 'mail', 'name']) for i in _limit()])
 
     return app
