@@ -1,7 +1,7 @@
 Returns a list of fake addresses
 ---
 parameters:
-  - name: quantity
+  - name: limit
     in: path
     type: integer
     required: false
