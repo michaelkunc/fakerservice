@@ -1,17 +1,6 @@
 import unittest
 import json
-from app import create_app
-import collections
-
-Endpoint = collections.namedtuple('Endpoint', 'url properties')
-addresses = Endpoint(url='/addresses/',
-                     properties=('city', 'state_prov', 'postal_code', 'country', 'street_address'))
-companies = Endpoint(url='/companies/',
-                     properties=('company_name', 'slogan'))
-license_plates = Endpoint(url='/license_plates/',
-                          properties=(['license_plate']))
-people = Endpoint(url='/people/',
-                  properties=('address', 'birthdate', 'company', 'mail', 'name', 'job'))
+from app import create_app, endpoints
 
 
 class FakerServiceTestCase(unittest.TestCase):
@@ -34,22 +23,25 @@ class FakerServiceTestCase(unittest.TestCase):
         self.assertEqual(
             set(properties), response['keys'])
         self.assertTrue(response['data'][0] != response['data'][1])
+
         response = self.payload("{}?limit=10".format(url))
         self.assertEqual(10, response['length'])
+
         response = self.payload("{}?limit=5001".format(url))
         self.assertEqual(100, response['length'])
 
     def test_addresses(self):
-        self.case(addresses.url, addresses.properties)
+        self.case(endpoints.addresses.url, endpoints.addresses.properties)
 
     def test_companies(self):
-        self.case(companies.url, companies.properties)
+        self.case(endpoints.companies.url, endpoints.companies.properties)
 
     def test_license_plates(self):
-        self.case(license_plates.url, license_plates.properties)
+        self.case(endpoints.license_plates.url,
+                  endpoints.license_plates.properties)
 
     def test_people(self):
-        self.case(people.url, people.properties)
+        self.case(endpoints.people.url, endpoints.people.properties)
 
     def test_docs(self):
         response = self.client().get('/apidocs/#')
