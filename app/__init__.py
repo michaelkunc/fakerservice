@@ -1,5 +1,5 @@
 from flask_api import FlaskAPI
-from flask import jsonify, request
+from flask import jsonify, request, render_template
 from faker import Faker
 from flasgger import Swagger, swag_from
 
@@ -54,4 +54,7 @@ def create_app(config_name):
         return _response([data.profile(fields=['address', 'birthdate',
                                                'company', 'job', 'mail', 'name']) for i in _limit()])
 
+    @app.errorhandler(404)
+    def page_not_found(e):
+        return render_template('layout.html'), 404
     return app
