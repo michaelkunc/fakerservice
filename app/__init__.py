@@ -28,6 +28,10 @@ def create_app(config_name):
         else:
             return range(0, 100)
 
+    @app.route('/')
+    def index():
+        return render_template('index.html')
+
     @app.route(endpoints.addresses.url, methods=['GET'])
     @swag_from(endpoints.addresses.docs)
     def addresses():
