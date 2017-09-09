@@ -28,6 +28,10 @@ def create_app(config_name):
         else:
             return range(0, 100)
 
+    @app.route('/')
+    def index():
+        return render_template('index.html')
+
     @app.route(endpoints.addresses.url, methods=['GET'])
     @swag_from(endpoints.addresses.docs)
     def addresses():
@@ -56,5 +60,5 @@ def create_app(config_name):
 
     @app.errorhandler(404)
     def page_not_found(e):
-        return render_template('layout.html'), 404
+        return render_template('404.html'), 404
     return app
