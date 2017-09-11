@@ -78,6 +78,11 @@ def create_app(config_name):
     def mac_address():
         return _response([{'mac_address': data.mac_address()} for i in _limit()])
 
+    @app.route(endpoints.username.url, methods=['GET'])
+    @swag_from(endpoints.username.docs)
+    def username():
+        return _response([{'username': data.user_name()} for i in _limit()])
+
     @app.errorhandler(404)
     def page_not_found(e):
         return render_template('404.html'), 404

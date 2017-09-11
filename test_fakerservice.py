@@ -59,6 +59,10 @@ class FakerServiceTestCase(unittest.TestCase):
         self.case(endpoints.mac_address.url,
                   endpoints.mac_address.properties)
 
+    def test_internet_usernames(self):
+        self.case(endpoints.username.url,
+                  endpoints.username.properties)
+
     def test_docs(self):
         response = self.client().get('/apidocs/#')
         self.assertEqual(200, response.status_code)

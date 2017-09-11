@@ -41,3 +41,8 @@ email = Endpoint(url='/internet/email/',
 mac_address = Endpoint(url='/internet/mac_addresses/',
                        properties=(['mac_address']),
                        docs='../docs/internet/mac_address.yml')
+
+
+username = Endpoint(url='/internet/usernames/',
+                    properties=(['username']),
+                    docs='../docs/internet/username.yml')
