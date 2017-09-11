@@ -54,3 +54,7 @@ image_url = Endpoint(url='/internet/image_urls/',
 ipv4 = Endpoint(url='/internet/ipv4s/',
                 properties=(['ip']),
                 docs='../docs/internet/ipv4s.yml')
+
+password = Endpoint(url='/internet/passwords/',
+                    properties=(['password']),
+                    docs='../docs/internet/passwords.yml')

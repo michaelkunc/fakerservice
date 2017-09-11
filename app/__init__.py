@@ -93,6 +93,11 @@ def create_app(config_name):
     def ipv4():
         return _response([{'ip': data.ipv4(network=False)} for i in _limit()])
 
+    @app.route(endpoints.password.url, methods=['GET'])
+    @swag_from(endpoints.password.docs)
+    def password():
+        return _response([{'password': data.password(length=10, special_chars=True, digits=True, upper_case=True, lower_case=True)} for i in _limit()])
+
     @app.errorhandler(404)
     def page_not_found(e):
         return render_template('404.html'), 404
