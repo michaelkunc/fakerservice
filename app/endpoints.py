@@ -46,3 +46,7 @@ mac_address = Endpoint(url='/internet/mac_addresses/',
 username = Endpoint(url='/internet/usernames/',
                     properties=(['username']),
                     docs='../docs/internet/username.yml')
+
+image_url = Endpoint(url='/internet/image_urls/',
+                     properties=(['url']),
+                     docs='../docs/internet/image_urls.yml')

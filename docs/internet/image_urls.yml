@@ -1,0 +1,19 @@
+Returns a list of fake image urls.
+---
+parameters:
+  - name: limit
+    in: path
+    type: integer
+    required: false
+    default: 100
+    description: Number of results to return
+definitions:
+  image_url:
+    type: object
+responses:
+  200:
+    description: A list of fake image urls.
+    schema:
+      $ref: '#/definitiona/image_url'
+    examples:
+      image_url: "https://dummyimage.com/336x396"

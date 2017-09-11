@@ -63,6 +63,10 @@ class FakerServiceTestCase(unittest.TestCase):
         self.case(endpoints.username.url,
                   endpoints.username.properties)
 
+    def test_internet_image_urls(self):
+        self.case(endpoints.image_url.url,
+                  endpoints.image_url.properties)
+
     def test_docs(self):
         response = self.client().get('/apidocs/#')
         self.assertEqual(200, response.status_code)

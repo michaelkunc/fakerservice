@@ -83,6 +83,11 @@ def create_app(config_name):
     def username():
         return _response([{'username': data.user_name()} for i in _limit()])
 
+    @app.route(endpoints.image_url.url, methods=['GET'])
+    @swag_from(endpoints.image_url.docs)
+    def image_url():
+        return _response([{'url': data.image_url()} for i in _limit()])
+
     @app.errorhandler(404)
     def page_not_found(e):
         return render_template('404.html'), 404
