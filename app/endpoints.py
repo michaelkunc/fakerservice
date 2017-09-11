@@ -50,3 +50,7 @@ username = Endpoint(url='/internet/usernames/',
 image_url = Endpoint(url='/internet/image_urls/',
                      properties=(['url']),
                      docs='../docs/internet/image_urls.yml')
+
+ipv4 = Endpoint(url='/internet/ipv4s/',
+                properties=(['ip']),
+                docs='../docs/internet/ipv4s.yml')

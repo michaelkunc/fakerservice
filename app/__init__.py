@@ -88,6 +88,11 @@ def create_app(config_name):
     def image_url():
         return _response([{'url': data.image_url()} for i in _limit()])
 
+    @app.route(endpoints.ipv4.url, methods=['GET'])
+    @swag_from(endpoints.ipv4.docs)
+    def ipv4():
+        return _response([{'ip': data.ipv4(network=False)} for i in _limit()])
+
     @app.errorhandler(404)
     def page_not_found(e):
         return render_template('404.html'), 404
