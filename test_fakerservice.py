@@ -43,6 +43,38 @@ class FakerServiceTestCase(unittest.TestCase):
     def test_people(self):
         self.case(endpoints.people.url, endpoints.people.properties)
 
+    def test_credit_cards(self):
+        self.case(endpoints.credit_cards.url,
+                  endpoints.credit_cards.properties)
+
+    def test_internet_url(self):
+        self.case(endpoints.url.url,
+                  endpoints.url.properties)
+
+    def test_internet_email(self):
+        self.case(endpoints.email.url,
+                  endpoints.email.properties)
+
+    def test_internet_mac_addresses(self):
+        self.case(endpoints.mac_address.url,
+                  endpoints.mac_address.properties)
+
+    def test_internet_usernames(self):
+        self.case(endpoints.username.url,
+                  endpoints.username.properties)
+
+    def test_internet_image_urls(self):
+        self.case(endpoints.image_url.url,
+                  endpoints.image_url.properties)
+
+    def test_internet_ipv4(self):
+        self.case(endpoints.ipv4.url,
+                  endpoints.ipv4.properties)
+
+    def test_internet_passwords(self):
+        self.case(endpoints.password.url,
+                  endpoints.password.properties)
+
     def test_docs(self):
         response = self.client().get('/apidocs/#')
         self.assertEqual(200, response.status_code)
