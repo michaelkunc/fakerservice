@@ -1,3 +1,4 @@
+
 from collections import namedtuple
 
 Endpoint = namedtuple('Endpoint', 'url properties docs')
@@ -23,3 +24,7 @@ people = Endpoint(url='/people/',
                               'company', 'mail', 'name', 'job'),
                   docs='../docs/people.yml'
                   )
+
+credit_cards = Endpoint(url='/credit_cards/',
+                        properties=(['full_card_detail']),
+                        docs='../docs/credit_card.yml')

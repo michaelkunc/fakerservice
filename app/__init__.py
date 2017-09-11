@@ -58,6 +58,11 @@ def create_app(config_name):
         return _response([data.profile(fields=['address', 'birthdate',
                                                'company', 'job', 'mail', 'name']) for i in _limit()])
 
+    @app.route(endpoints.credit_cards.url, methods=['GET'])
+    @swag_from(endpoints.credit_cards.docs)
+    def credit_cards():
+        return _response([{'full_card_detail': data.credit_card_full()} for i in _limit()])
+
     @app.errorhandler(404)
     def page_not_found(e):
         return render_template('404.html'), 404
