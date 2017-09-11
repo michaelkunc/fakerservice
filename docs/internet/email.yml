@@ -1,0 +1,19 @@
+Returns a list of fake emails.
+---
+parameters:
+  - name: limit
+    in: path
+    type: integer
+    required: false
+    default: 100
+    description: Number of results to return
+definitions:
+  email:
+    type: object
+responses:
+  200:
+    description: A list of emails.
+    schema:
+      $ref: '#/definitiona/email'
+    examples:
+      email: "austinpearson@kim-thomas.com"

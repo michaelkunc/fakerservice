@@ -28,3 +28,16 @@ people = Endpoint(url='/people/',
 credit_cards = Endpoint(url='/credit_cards/',
                         properties=(['full_card_detail']),
                         docs='../docs/credit_card.yml')
+
+
+url = Endpoint(url='/internet/url/',
+               properties=(['url']),
+               docs='../docs/internet/url.yml')
+
+email = Endpoint(url='/internet/email/',
+                 properties=(['email']),
+                 docs='../docs/internet/email.yml')
+
+mac_address = Endpoint(url='/internet/mac_addresses/',
+                       properties=(['mac_address']),
+                       docs='../docs/internet/mac_address.yml')

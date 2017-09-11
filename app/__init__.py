@@ -63,6 +63,21 @@ def create_app(config_name):
     def credit_cards():
         return _response([{'full_card_detail': data.credit_card_full()} for i in _limit()])
 
+    @app.route(endpoints.url.url, methods=['GET'])
+    @swag_from(endpoints.url.docs)
+    def url():
+        return _response([{'url': data.url()} for i in _limit()])
+
+    @app.route(endpoints.email.url, methods=['GET'])
+    @swag_from(endpoints.email.docs)
+    def email():
+        return _response([{'email': data.email()} for i in _limit()])
+
+    @app.route(endpoints.mac_address.url, methods=['GET'])
+    @swag_from(endpoints.mac_address.docs)
+    def mac_address():
+        return _response([{'mac_address': data.mac_address()} for i in _limit()])
+
     @app.errorhandler(404)
     def page_not_found(e):
         return render_template('404.html'), 404
