@@ -1,3 +1,4 @@
+
 from flask_api import FlaskAPI
 from flask import jsonify, request, render_template
 from faker import Faker
@@ -31,6 +32,14 @@ def create_app(config_name):
     @app.route('/')
     def index():
         return render_template('index.html')
+
+    @app.route('/about')
+    def about():
+        return render_template('about.html')
+
+    @app.route('/whoami')
+    def whoami():
+        return render_template('whoami.html')
 
     @app.route(endpoints.addresses.url, methods=['GET'])
     @swag_from(endpoints.addresses.docs)
