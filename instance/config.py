@@ -35,3 +35,26 @@ app_config = {
     'staging': StagingConfig,
     'production': ProductionConfig,
 }
+
+
+swagger_template = {
+    "swagger": "2.0",
+    "info": {
+        "title": "Fakerservice",
+        "description": "Rest API for the Faker library.",
+        # "contact": {
+        # "responsibleOrganization": "ME",
+        # "responsibleDeveloper": "Me",
+        # "email": "me@me.com",
+        # "url": "www.me.com",
+        # },
+        # "termsOfService": "http://me.com/terms",
+        "version": "0.0.1"
+    },
+    "host": "faker.com",  # overrides localhost:500
+    "basePath": "/api",  # base bash for blueprint registration
+    "schemes": [
+        "http",
+        "https"
+    ]
+}
