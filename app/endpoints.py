@@ -14,6 +14,10 @@ country_code = Endpoint(url='/addresses/country_codes/',
                         docs='../docs/addresses/country_codes.yml')
 
 
+military_state = Endpoint(url='/addresses/military_state/',
+                          properties=(['military_state']),
+                          docs='../docs/addresses/military_states.yml')
+
 companies = Endpoint(url='/companies/',
                      properties=('company_name', 'slogan'),
                      docs='../docs/companies.yml'

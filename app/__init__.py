@@ -53,6 +53,11 @@ def create_app(config_name):
     def country_code():
         return _response([{'country_code': data.country_code()} for i in _limit()])
 
+    @app.route(endpoints.military_state.url, methods=['GET'])
+    @swag_from(endpoints.military_state.docs)
+    def military_state():
+        return _response([{'military_state': data.military_state()} for i in _limit()])
+
     @app.route(endpoints.companies.url, methods=['GET'])
     @swag_from(endpoints.companies.docs)
     def companies():

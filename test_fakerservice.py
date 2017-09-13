@@ -37,6 +37,10 @@ class FakerServiceTestCase(unittest.TestCase):
         self.case(endpoints.country_code.url,
                   endpoints.country_code.properties)
 
+    def test_addresses_militart_state(self):
+        self.case(endpoints.military_state.url,
+                  endpoints.military_state.properties)
+
     def test_companies(self):
         self.case(endpoints.companies.url, endpoints.companies.properties)
 
