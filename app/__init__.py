@@ -6,7 +6,7 @@ from flasgger import Swagger, swag_from
 
 data = Faker()
 
-from instance.config import app_config, swagger_config
+from instance.config import app_config, swagger_template
 from app import endpoints
 
 
@@ -14,7 +14,7 @@ def create_app(config_name):
     app = FlaskAPI(__name__, instance_relative_config=True)
     app.config.from_object(app_config[config_name])
     app.config.from_pyfile('config.py')
-    swagger = Swagger(app, config=swagger_config)
+    swagger = Swagger(app, template=swagger_template)
 
     def _response(results):
         response = jsonify(results)

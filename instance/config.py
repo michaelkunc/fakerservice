@@ -36,19 +36,25 @@ app_config = {
     'production': ProductionConfig,
 }
 
-swagger_config = {
-    "headers": [
-    ],
-    "specs": [
-        {
-            "endpoint": 'apispec_1',
-            "route": '/apispec_1.json',
-            "rule_filter": lambda rule: True,  # all in
-            "model_filter": lambda tag: True,  # all in
-            "title": "Fakerservice"
-        }
-    ],
-    "static_url_path": "/flasgger_static",
-    "swagger_ui": True,
-    "specs_route": "/apidocs/"
+
+swagger_template = {
+    "swagger": "2.0",
+    "info": {
+        "title": "Fakerservice",
+        "description": "Rest API for the Faker library.",
+        # "contact": {
+        # "responsibleOrganization": "ME",
+        # "responsibleDeveloper": "Me",
+        # "email": "me@me.com",
+        # "url": "www.me.com",
+        # },
+        # "termsOfService": "http://me.com/terms",
+        "version": "0.0.1"
+    },
+    "host": "faker.com",  # overrides localhost:500
+    "basePath": "/api",  # base bash for blueprint registration
+    "schemes": [
+        "http",
+        "https"
+    ]
 }
