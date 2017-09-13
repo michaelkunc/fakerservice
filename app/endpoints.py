@@ -14,11 +14,11 @@ country_code = Endpoint(url='/addresses/country_codes/',
                         docs='../docs/addresses/country_codes.yml')
 
 
-military_state = Endpoint(url='/addresses/military_state/',
+military_state = Endpoint(url='/addresses/military_states/',
                           properties=(['military_state']),
                           docs='../docs/addresses/military_states.yml')
 
-military_ship = Endpoint(url='/addresses/military_ship/',
+military_ship = Endpoint(url='/addresses/military_ships/',
                          properties=(['military_ship']),
                          docs='../docs/addresses/military_ships.yml')
 

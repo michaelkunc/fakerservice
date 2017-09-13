@@ -1,18 +1,11 @@
-Returns a list of military states.
+Returns the list of military states.
 ---
-parameters:
-  - name: limit
-    in: path
-    type: integer
-    required: false
-    default: 100
-    description: Number of results to return
 definitions:
   military_states:
     type: object
 responses:
   200:
-    description: A list of military_states.
+    description: The list of military_states.
     schema:
       $ref: '#/definitions military_states'
     examples:

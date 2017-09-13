@@ -38,13 +38,22 @@ class FakerServiceTestCase(unittest.TestCase):
                   endpoints.country_code.properties)
 
     def test_addresses_military_state(self):
-        self.case(endpoints.military_state.url,
-                  endpoints.military_state.properties)
+        response = self.payload(endpoints.military_state.url)
+        self.assertEqual(response['status_code'], 200)
+        self.assertEqual(3, response['length'])
+        self.assertEqual(
+            set(endpoints.military_state.properties), response['keys'])
+        self.assertTrue(response['data'][0] != response['data'][1])
 
     def test_addresses_military_ship(self):
-        self.case(endpoints.military_ship.url,
-                  endpoints.military_ship.properties)
+        response = self.payload(endpoints.military_ship.url)
+        self.assertEqual(response['status_code'], 200)
+        self.assertEqual(4, response['length'])
+        self.assertEqual(
+            set(endpoints.military_ship.properties), response['keys'])
+        self.assertTrue(response['data'][0] != response['data'][1])
 
+    def test_companies(self):
         self.case(endpoints.companies.url, endpoints.companies.properties)
 
     def test_license_plates(self):

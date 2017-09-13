@@ -1,12 +1,5 @@
 Returns a list of military ships.
 ---
-parameters:
-  - name: limit
-    in: path
-    type: integer
-    required: false
-    default: 100
-    description: Number of results to return
 definitions:
   military_ships:
     type: object
