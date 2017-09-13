@@ -9,6 +9,11 @@ addresses = Endpoint(url='/addresses/',
                      docs='../docs/addresses.yml'
                      )
 
+country_code = Endpoint(url='/addresses/country_codes/',
+                        properties=(['country_code']),
+                        docs='../docs/addresses/country_codes.yml')
+
+
 companies = Endpoint(url='/companies/',
                      properties=('company_name', 'slogan'),
                      docs='../docs/companies.yml'
