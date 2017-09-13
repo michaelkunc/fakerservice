@@ -58,6 +58,11 @@ def create_app(config_name):
     def military_state():
         return _response([{'military_state': data.military_state()} for i in _limit()])
 
+    @app.route(endpoints.military_ship.url, methods=['GET'])
+    @swag_from(endpoints.military_ship.docs)
+    def military_ship():
+        return _response([{'military_ship': data.military_ship()} for i in _limit()])
+
     @app.route(endpoints.companies.url, methods=['GET'])
     @swag_from(endpoints.companies.docs)
     def companies():

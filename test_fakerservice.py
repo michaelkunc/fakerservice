@@ -37,11 +37,14 @@ class FakerServiceTestCase(unittest.TestCase):
         self.case(endpoints.country_code.url,
                   endpoints.country_code.properties)
 
-    def test_addresses_militart_state(self):
+    def test_addresses_military_state(self):
         self.case(endpoints.military_state.url,
                   endpoints.military_state.properties)
 
-    def test_companies(self):
+    def test_addresses_military_ship(self):
+        self.case(endpoints.military_ship.url,
+                  endpoints.military_ship.properties)
+
         self.case(endpoints.companies.url, endpoints.companies.properties)
 
     def test_license_plates(self):

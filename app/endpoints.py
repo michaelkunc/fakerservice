@@ -18,6 +18,10 @@ military_state = Endpoint(url='/addresses/military_state/',
                           properties=(['military_state']),
                           docs='../docs/addresses/military_states.yml')
 
+military_ship = Endpoint(url='/addresses/military_ship/',
+                         properties=(['military_ship']),
+                         docs='../docs/addresses/military_ships.yml')
+
 companies = Endpoint(url='/companies/',
                      properties=('company_name', 'slogan'),
                      docs='../docs/companies.yml'
