@@ -1,0 +1,19 @@
+Returns a list of countries.
+---
+parameters:
+  - name: limit
+    in: path
+    type: integer
+    required: false
+    default: 10
+    description: Number of results to return
+definitions:
+  countries:
+    type: object
+responses:
+  200:
+    description: A list of countries.
+    schema:
+      $ref: '#/definitions countries'
+    examples:
+      country: "Lithuania"

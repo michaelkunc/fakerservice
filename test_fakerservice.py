@@ -33,6 +33,9 @@ class FakerServiceTestCase(unittest.TestCase):
     def test_addresses(self):
         self.case(endpoints.addresses.url, endpoints.addresses.properties)
 
+    def test_addresses_countries(self):
+        self.case(endpoints.country.url, endpoints.country.properties)
+
     def test_addresses_country_codes(self):
         self.case(endpoints.country_code.url,
                   endpoints.country_code.properties)

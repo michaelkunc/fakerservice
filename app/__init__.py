@@ -48,6 +48,11 @@ def create_app(config_name):
                            'city': data.city(), 'state_prov': data.state_abbr(),
                            'postal_code': data.postalcode(), 'country': data.country()} for i in _limit()])
 
+    @app.route(endpoints.country.url, methods=['GET'])
+    @swag_from(endpoints.country.docs)
+    def country():
+        return _response([{'country': data.country()} for i in _limit()])
+
     @app.route(endpoints.country_code.url, methods=['GET'])
     @swag_from(endpoints.country_code.docs)
     def country_code():
