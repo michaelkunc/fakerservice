@@ -1,0 +1,19 @@
+Returns a list of street addresses.
+---
+parameters:
+  - name: limit
+    in: path
+    type: integer
+    required: false
+    default: 100
+    description: Number of results to return
+definitions:
+  street_addresses:
+    type: object
+responses:
+  200:
+    description: A list of street_addresses.
+    schema:
+      $ref: '#/definitions street_addresses'
+    examples:
+      street_addresss: "140 Christopher Place"

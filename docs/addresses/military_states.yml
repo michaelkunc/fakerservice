@@ -1,0 +1,12 @@
+Returns the list of military states.
+---
+definitions:
+  military_states:
+    type: object
+responses:
+  200:
+    description: The list of military_states.
+    schema:
+      $ref: '#/definitions military_states'
+    examples:
+      military_state: "AP"

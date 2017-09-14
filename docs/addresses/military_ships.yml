@@ -1,0 +1,12 @@
+Returns a list of military ships.
+---
+definitions:
+  military_ships:
+    type: object
+responses:
+  200:
+    description: A list of military_ships.
+    schema:
+      $ref: '#/definitions military_ships'
+    examples:
+      military_state: "USS"
