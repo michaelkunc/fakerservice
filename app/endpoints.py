@@ -3,10 +3,10 @@ from collections import namedtuple
 
 Endpoint = namedtuple('Endpoint', 'url properties docs')
 
-addresses = Endpoint(url='/addresses/',
+addresses = Endpoint(url='/addresses/full_addresses/',
                      properties=('city', 'state_prov', 'postal_code',
                                  'country', 'street_address'),
-                     docs='../docs/addresses.yml'
+                     docs='../docs/addresses/addresses.yml'
                      )
 
 country_code = Endpoint(url='/addresses/country_codes/',
@@ -21,6 +21,10 @@ military_state = Endpoint(url='/addresses/military_states/',
 military_ship = Endpoint(url='/addresses/military_ships/',
                          properties=(['military_ship']),
                          docs='../docs/addresses/military_ships.yml')
+
+street_address = Endpoint(url='/addresses/street_addresses/',
+                          properties=(['street_address']),
+                          docs='../docs/addresses/street_addresses.yml')
 
 companies = Endpoint(url='/companies/',
                      properties=('company_name', 'slogan'),
