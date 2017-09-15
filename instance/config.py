@@ -43,10 +43,10 @@ swagger_template = {
         "title": "Fakerservice",
         "description": "Rest API for the Faker library.",
         # "contact": {
-        # "responsibleOrganization": "ME",
-        # "responsibleDeveloper": "Me",
-        # "email": "me@me.com",
-        # "url": "www.me.com",
+        #     "responsibleOrganization": "ME",
+        #     "responsibleDeveloper": "Me",
+        #     "email": "me@me.com",
+        #     "url": "www.me.com",
         # },
         # "termsOfService": "http://me.com/terms",
         "version": "0.0.1"
