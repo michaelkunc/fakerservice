@@ -56,6 +56,10 @@ class FakerServiceTestCase(unittest.TestCase):
             set(endpoints.military_ship.properties), response['keys'])
         self.assertTrue(response['data'][0] != response['data'][1])
 
+    def test_addresses_state_abbr(self):
+        self.case(endpoints.state_abbr.url,
+                  endpoints.state_abbr.properties)
+
     def test_addresses_street_address(self):
         self.case(endpoints.street_address.url,
                   endpoints.street_address.properties)

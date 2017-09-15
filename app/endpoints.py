@@ -28,6 +28,10 @@ military_ship = Endpoint(url='/addresses/military_ships/',
                          docs='../docs/addresses/military_ships.yml')
 
 
+state_abbr = Endpoint(url='/addresses/state_abbreviations/',
+                      properties=(['state']),
+                      docs='../docs/addresses/state_abbreviations.yml')
+
 street_address = Endpoint(url='/addresses/street_addresses/',
                           properties=(['street_address']),
                           docs='../docs/addresses/street_addresses.yml')

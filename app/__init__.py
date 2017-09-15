@@ -70,6 +70,11 @@ def create_app(config_name):
         military_ships = set([data.military_ship() for i in _limit()])
         return _response([{'military_ship': i} for i in military_ships])
 
+    @app.route(endpoints.state_abbr.url, methods=['GET'])
+    @swag_from(endpoints.state_abbr.docs)
+    def state_abbr():
+        return _response([{'state': data.state_abbr()} for i in _limit()])
+
     @app.route(endpoints.street_address.url, methods=['GET'])
     @swag_from(endpoints.street_address.docs)
     def street_address():
