@@ -48,6 +48,11 @@ def create_app(config_name):
                            'city': data.city(), 'state_prov': data.state_abbr(),
                            'postal_code': data.postalcode(), 'country': data.country()} for i in _limit()])
 
+    @app.route(endpoints.country.url, methods=['GET'])
+    @swag_from(endpoints.country.docs)
+    def country():
+        return _response([{'country': data.country()} for i in _limit()])
+
     @app.route(endpoints.country_code.url, methods=['GET'])
     @swag_from(endpoints.country_code.docs)
     def country_code():
@@ -64,6 +69,11 @@ def create_app(config_name):
     def military_ship():
         military_ships = set([data.military_ship() for i in _limit()])
         return _response([{'military_ship': i} for i in military_ships])
+
+    @app.route(endpoints.state_abbr.url, methods=['GET'])
+    @swag_from(endpoints.state_abbr.docs)
+    def state_abbr():
+        return _response([{'state': data.state_abbr()} for i in _limit()])
 
     @app.route(endpoints.street_address.url, methods=['GET'])
     @swag_from(endpoints.street_address.docs)

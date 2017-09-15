@@ -9,6 +9,11 @@ addresses = Endpoint(url='/addresses/full_addresses/',
                      docs='../docs/addresses/addresses.yml'
                      )
 
+country = Endpoint(url='/addresses/countries/',
+                   properties=(['country']),
+                   docs='../docs/addresses/countries.yml')
+
+
 country_code = Endpoint(url='/addresses/country_codes/',
                         properties=(['country_code']),
                         docs='../docs/addresses/country_codes.yml')
@@ -21,6 +26,11 @@ military_state = Endpoint(url='/addresses/military_states/',
 military_ship = Endpoint(url='/addresses/military_ships/',
                          properties=(['military_ship']),
                          docs='../docs/addresses/military_ships.yml')
+
+
+state_abbr = Endpoint(url='/addresses/state_abbreviations/',
+                      properties=(['state']),
+                      docs='../docs/addresses/state_abbreviations.yml')
 
 street_address = Endpoint(url='/addresses/street_addresses/',
                           properties=(['street_address']),
