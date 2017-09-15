@@ -51,8 +51,8 @@ swagger_template = {
         # "termsOfService": "http://me.com/terms",
         "version": "0.0.1"
     },
-    "host": "faker.com",  # overrides localhost:500
-    "basePath": "/api",  # base bash for blueprint registration
+    # "host": "fakerservice.com",  # overrides localhost:500
+    # "basePath": "/",  # base bash for blueprint registration
     "schemes": [
         "http",
         "https"
