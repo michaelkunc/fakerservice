@@ -8,50 +8,41 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="//mincss.com/entireframework.min.css" rel="stylesheet" type="text/css">
-        <style>
-        html {
-            background: #b3afaf
-        }
-        .hero {
-            background: #dad9d9;
+        <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+        <style type="text/css">
+        .navbar {
+            background-color: #3e619b;
             padding: 20px;
-            border-radius: 10px;
-            margin-top: 1em;
-            box-shadow: 2px 2px 2px 2px #716969
+            margin-bottom: 20px;
+            box-shadow: 2px 4px #e7ebef;
+        }   
+
+        .btn.btn-link {
+            background: 0 0;
+            border-color: transparent;
+            color: #e2e2e2;
         }
 
-        .hero h1 {
-            margin-top: 0;
-            margin-bottom: 0.5em;
-        }
-
-        .c4 {
-            padding: 10px;
-            box-sizing: border-box;
-        }
-
-        .c4 h3 {
-            margin-top: 0;
-        }
-
-        .c4 a {
-            margin-top: 10px;
-            display: inline-block;
+        .btn.btn-link.active, .btn.btn-link:active, .btn.btn-link:focus, .btn.btn-link:hover {
+            color: #ffffff;
         }
         </style>
     </head>
     <title>{% block title %} {% endblock %}</title>
     {% endblock %}
 </head>
-<nav class="nav" tabindex="-1" onclick="this.focus()">
-    <div class="container">
-        <a class="pagename current" href="http://fakerservice.com/apidocs/#/default">API Documentation</a>
-        <a href="{{ url_for('index') }}" }>Home</a>
-        <a href="{{ url_for('about') }} ">About</a>
-        <a href="{{ url_for('whoami') }} ">Whoami</a>
-    </div>
-</nav>
+<header class="navbar">
+    <section class="navbar-section">
+        <a href="{{ url_for('index') }}" class="btn btn-link">Home</a>
+        <a href="{{ url_for('about') }}" class="btn btn-link">About</a>
+    </section>
+    <section class="navbar-center">
+        <a class="btn btn-link" href="http://fakerservice.com/apidocs/#/default">API Documentation</a>
+    </section>
+    <section class="navbar-section">
+        <a href="{{ url_for('whoami') }}" class="btn btn-link">Whoami</a>
+    </section>
+</header>
 
 <body>
     <div id="content">{% block content %}{% endblock %}</div>
