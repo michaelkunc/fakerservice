@@ -102,6 +102,11 @@ def create_app(config_name):
     def credit_cards():
         return _response([{'full_card_detail': data.credit_card_full()} for i in _limit()])
 
+    @app.route(endpoints.credit_card_security_code.url, methods=['GET'])
+    @swag_from(endpoints.credit_card_security_code.docs)
+    def credit_card_security_code():
+        return _response([{'security_code': data.credit_card_security_code()} for i in _limit()])
+
     @app.route(endpoints.url.url, methods=['GET'])
     @swag_from(endpoints.url.docs)
     def url():

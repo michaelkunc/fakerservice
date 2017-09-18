@@ -1,0 +1,19 @@
+Returns a list of fake security codes
+---
+parameters:
+  - name: limit
+    in: path
+    type: integer
+    required: false
+    default: 100
+    description: Number of results to return
+definitions:
+  security_codes:
+    type: object
+responses:
+  200:
+    description: A list of credit card security codes.
+    schema:
+      $ref: '#/definitiona/security_codes'
+    examples:
+      security_code: "506"
