@@ -152,8 +152,20 @@ safe_color_name = Endpoint(name='safe_color_name', url='/colors/safe_color_names
                            docs='../docs/colors/safe_color_names.yml',
                            data=data.safe_color_name)
 
+ean8 = Endpoint(name='ean8', url='/barcode/ean8/',
+                properties=(['ean8']),
+                docs='../docs/barcode/ean8.yml',
+                data=data.ean8)
+
+
+ean13 = Endpoint(name='ean13', url='/barcode/ean13/',
+                 properties=(['ean13']),
+                 docs='../docs/barcode/ean13.yml',
+                 data=data.ean13)
+
 
 endpoint_list = [addresses, country, country_code,
                  military_state, military_ship, state_abbr, street_address, companies,
                  license_plates, people, credit_cards, credit_card_security_code, credit_card_expire, url, email, mac_address, username,
-                 image_url, ipv4, password, rgb_color, color_name, rgb_css_color, hex_color, safe_hex_color, safe_color_name]
+                 image_url, ipv4, password, rgb_color, color_name, rgb_css_color, hex_color, safe_hex_color, safe_color_name, ean8,
+                 ean13]
