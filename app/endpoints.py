@@ -122,8 +122,18 @@ password = Endpoint(name='password', url='/internet/passwords/',
                     docs='../docs/internet/passwords.yml',
                     data=None)
 
+rgb_color = Endpoint(name='rgb_color', url='/colors/rgb_colors/',
+                     properties=(['rgb_color']),
+                     docs='../docs/colors/rgb_colors.yml',
+                     data=data.rgb_color)
+
+color_name = Endpoint(name='color_name', url='/colors/color_name/',
+                      properties=(['color_name']),
+                      docs='../docs/colors/color_names.yml',
+                      data=data.color_name)
+
 
 endpoint_list = [addresses, country, country_code,
                  military_state, military_ship, state_abbr, street_address, companies,
                  license_plates, people, credit_cards, credit_card_security_code, credit_card_expire, url, email, mac_address, username,
-                 image_url, ipv4, password]
+                 image_url, ipv4, password, rgb_color, color_name]

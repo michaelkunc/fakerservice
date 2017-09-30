@@ -1,0 +1,19 @@
+Returns a list of rgb colors.
+---
+parameters:
+  - name: limit
+    in: path
+    type: integer
+    required: false
+    default: 10
+    description: Number of results to return
+definitions:
+  rgb_color:
+    type: object
+responses:
+  200:
+    description: A list of rgb_color.
+    schema:
+      $ref: '#/definitions rgb_color'
+    examples:
+      rgb_color: "75,78,204"

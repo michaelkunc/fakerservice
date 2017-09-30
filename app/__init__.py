@@ -152,6 +152,16 @@ def create_app(config_name):
         return _response([{'password': data.password(length=10, special_chars=True, digits=True,
                                                      upper_case=True, lower_case=True)} for i in _limit()])
 
+    @app.route(ep.rgb_color.url, methods=['GET'])
+    @swag_from(ep.rgb_color.docs)
+    def rgb_color():
+        return _single_field(ep.rgb_color.properties, ep.rgb_color.data)
+
+    @app.route(ep.color_name.url, methods=['GET'])
+    @swag_from(ep.color_name.docs)
+    def color_name():
+        return _single_field(ep.color_name.properties, ep.color_name.data)
+
     @app.errorhandler(404)
     def page_not_found(e):
         return render_template('404.html'), 404
