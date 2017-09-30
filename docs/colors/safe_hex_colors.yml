@@ -1,0 +1,19 @@
+Returns a list of safe hex colors.
+---
+parameters:
+  - name: limit
+    in: path
+    type: integer
+    required: false
+    default: 10
+    description: Number of results to return
+definitions:
+  safe_hex_color:
+    type: object
+responses:
+  200:
+    description: A list of safe_hex_color.
+    schema:
+      $ref: '#/definitions safe_hex_color'
+    examples:
+      safe_hex_color: "#664400"

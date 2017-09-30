@@ -1,0 +1,19 @@
+Returns a list of rgb css colors.
+---
+parameters:
+  - name: limit
+    in: path
+    type: integer
+    required: false
+    default: 10
+    description: Number of results to return
+definitions:
+  rbg_css_color:
+    type: object
+responses:
+  200:
+    description: A list of rbg_css_color.
+    schema:
+      $ref: '#/definitions rbg_css_color'
+    examples:
+      rbg_css_color: "rgb(73,18,209)"

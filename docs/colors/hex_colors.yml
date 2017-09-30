@@ -1,0 +1,19 @@
+Returns a list of hex colors.
+---
+parameters:
+  - name: limit
+    in: path
+    type: integer
+    required: false
+    default: 10
+    description: Number of results to return
+definitions:
+  hex_color:
+    type: object
+responses:
+  200:
+    description: A list of hex_color.
+    schema:
+      $ref: '#/definitions hex_color'
+    examples:
+      hex_color: "#1a8f70"
