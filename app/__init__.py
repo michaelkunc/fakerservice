@@ -182,6 +182,16 @@ def create_app(config_name):
     def safe_color_name():
         return _single_field(ep.safe_color_name.properties, ep.safe_color_name.data)
 
+    @app.route(ep.ean8.url, methods=['GET'])
+    @swag_from(ep.ean8.docs)
+    def ean8():
+        return _single_field(ep.ean8.properties, ep.ean8.data)
+
+    @app.route(ep.ean13.url, methods=['GET'])
+    @swag_from(ep.ean13.docs)
+    def ean13():
+        return _single_field(ep.ean13.properties, ep.ean13.data)
+
     @app.errorhandler(404)
     def page_not_found(e):
         return render_template('404.html'), 404
