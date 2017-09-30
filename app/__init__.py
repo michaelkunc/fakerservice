@@ -7,7 +7,7 @@ from flasgger import Swagger, swag_from
 data = Faker()
 
 from instance.config import app_config, swagger_template
-from app import endpoints
+from app import endpoints as ep
 
 
 def create_app(config_name):
@@ -29,6 +29,9 @@ def create_app(config_name):
         else:
             return range(0, 100)
 
+    def _single_field(property, data):
+        return _response([{property[0]: data()} for i in _limit()])
+
     @app.route('/')
     def index():
         return render_template('index.html')
@@ -41,101 +44,113 @@ def create_app(config_name):
     def whoami():
         return render_template('whoami.html')
 
-    @app.route(endpoints.addresses.url, methods=['GET'])
-    @swag_from(endpoints.addresses.docs)
+    @app.route(ep.addresses.url, methods=['GET'])
+    @swag_from(ep.addresses.docs)
     def addresses():
         return _response([{'street_address': data.street_address(),
                            'city': data.city(), 'state_prov': data.state_abbr(),
                            'postal_code': data.postalcode(), 'country': data.country()} for i in _limit()])
 
-    @app.route(endpoints.country.url, methods=['GET'])
-    @swag_from(endpoints.country.docs)
+    @app.route(ep.country.url, methods=['GET'])
+    @swag_from(ep.country.docs)
     def country():
-        return _response([{'country': data.country()} for i in _limit()])
+        return _single_field(ep.country.properties,
+                             ep.country.data)
 
-    @app.route(endpoints.country_code.url, methods=['GET'])
-    @swag_from(endpoints.country_code.docs)
+    @app.route(ep.country_code.url, methods=['GET'])
+    @swag_from(ep.country_code.docs)
     def country_code():
-        return _response([{'country_code': data.country_code()} for i in _limit()])
+        return _single_field(ep.country_code.properties,
+                             ep.country_code.data)
 
-    @app.route(endpoints.military_state.url, methods=['GET'])
-    @swag_from(endpoints.military_state.docs)
+    @app.route(ep.military_state.url, methods=['GET'])
+    @swag_from(ep.military_state.docs)
     def military_state():
-        return _response([{'military_state': data.military_state()} for i in _limit()])
+        return _single_field(ep.military_state.properties, ep.military_state.data)
 
-    @app.route(endpoints.military_ship.url, methods=['GET'])
-    @swag_from(endpoints.military_ship.docs)
+    @app.route(ep.military_ship.url, methods=['GET'])
+    @swag_from(ep.military_ship.docs)
     def military_ship():
-        return _response([{'military_ship': data.military_ship()} for i in _limit()])
+        return _single_field(ep.military_ship.properties, ep.military_ship.data)
 
-    @app.route(endpoints.state_abbr.url, methods=['GET'])
-    @swag_from(endpoints.state_abbr.docs)
+    @app.route(ep.state_abbr.url, methods=['GET'])
+    @swag_from(ep.state_abbr.docs)
     def state_abbr():
-        return _response([{'state': data.state_abbr()} for i in _limit()])
+        return _single_field(ep.state_abbr.properties, ep.state_abbr.data)
 
-    @app.route(endpoints.street_address.url, methods=['GET'])
-    @swag_from(endpoints.street_address.docs)
+    @app.route(ep.street_address.url, methods=['GET'])
+    @swag_from(ep.street_address.docs)
     def street_address():
-        return _response([{'street_address': data.street_address()} for i in _limit()])
+        return _single_field(ep.street_address.properties, ep.street_address.data)
 
-    @app.route(endpoints.companies.url, methods=['GET'])
-    @swag_from(endpoints.companies.docs)
+    @app.route(ep.companies.url, methods=['GET'])
+    @swag_from(ep.companies.docs)
     def companies():
         return _response([{'company_name': '{0} {1}'.format(data.company(), data.company_suffix()),
                            'slogan': data.catch_phrase()}
                           for i in _limit()])
 
-    @app.route(endpoints.license_plates.url, methods=['GET'])
-    @swag_from(endpoints.license_plates.docs)
+    @app.route(ep.license_plates.url, methods=['GET'])
+    @swag_from(ep.license_plates.docs)
     def license_plates():
-        return _response([{'license_plate': data.license_plate()} for i in
-                          _limit()])
+        return _single_field(ep.license_plates.properties, ep.license_plates.data)
 
-    @app.route(endpoints.people.url, methods=['GET'])
-    @swag_from(endpoints.people.docs)
+    @app.route(ep.people.url, methods=['GET'])
+    @swag_from(ep.people.docs)
     def people():
         return _response([data.profile(fields=['address', 'birthdate',
                                                'company', 'job', 'mail', 'name']) for i in _limit()])
 
-    @app.route(endpoints.credit_cards.url, methods=['GET'])
-    @swag_from(endpoints.credit_cards.docs)
+    @app.route(ep.credit_cards.url, methods=['GET'])
+    @swag_from(ep.credit_cards.docs)
     def credit_cards():
-        return _response([{'full_card_detail': data.credit_card_full()} for i in _limit()])
+        return _single_field(ep.credit_cards.properties, ep.credit_cards.data)
 
-    @app.route(endpoints.url.url, methods=['GET'])
-    @swag_from(endpoints.url.docs)
+    @app.route(ep.credit_card_security_code.url, methods=['GET'])
+    @swag_from(ep.credit_card_security_code.docs)
+    def credit_card_security_code():
+        return _single_field(ep.credit_card_security_code.properties, ep.credit_card_security_code.data)
+
+    @app.route(ep.credit_card_expire.url, methods=['GET'])
+    @swag_from(ep.credit_card_expire.docs)
+    def credit_card_expire():
+        return _single_field(ep.credit_card_expire.properties, ep.credit_card_expire.data)
+
+    @app.route(ep.url.url, methods=['GET'])
+    @swag_from(ep.url.docs)
     def url():
-        return _response([{'url': data.url()} for i in _limit()])
+        return _single_field(ep.url.properties, ep.url.data)
 
-    @app.route(endpoints.email.url, methods=['GET'])
-    @swag_from(endpoints.email.docs)
+    @app.route(ep.email.url, methods=['GET'])
+    @swag_from(ep.email.docs)
     def email():
-        return _response([{'email': data.email()} for i in _limit()])
+        return _single_field(ep.email.properties, ep.email.data)
 
-    @app.route(endpoints.mac_address.url, methods=['GET'])
-    @swag_from(endpoints.mac_address.docs)
+    @app.route(ep.mac_address.url, methods=['GET'])
+    @swag_from(ep.mac_address.docs)
     def mac_address():
-        return _response([{'mac_address': data.mac_address()} for i in _limit()])
+        return _single_field(ep.mac_address.properties, ep.mac_address.data)
 
-    @app.route(endpoints.username.url, methods=['GET'])
-    @swag_from(endpoints.username.docs)
+    @app.route(ep.username.url, methods=['GET'])
+    @swag_from(ep.username.docs)
     def username():
-        return _response([{'username': data.user_name()} for i in _limit()])
+        return _single_field(ep.username.properties, ep.username.data)
 
-    @app.route(endpoints.image_url.url, methods=['GET'])
-    @swag_from(endpoints.image_url.docs)
+    @app.route(ep.image_url.url, methods=['GET'])
+    @swag_from(ep.image_url.docs)
     def image_url():
-        return _response([{'url': data.image_url()} for i in _limit()])
+        return _single_field(ep.image_url.properties, ep.image_url.data)
 
-    @app.route(endpoints.ipv4.url, methods=['GET'])
-    @swag_from(endpoints.ipv4.docs)
+    @app.route(ep.ipv4.url, methods=['GET'])
+    @swag_from(ep.ipv4.docs)
     def ipv4():
         return _response([{'ip': data.ipv4(network=False)} for i in _limit()])
 
-    @app.route(endpoints.password.url, methods=['GET'])
-    @swag_from(endpoints.password.docs)
+    @app.route(ep.password.url, methods=['GET'])
+    @swag_from(ep.password.docs)
     def password():
-        return _response([{'password': data.password(length=10, special_chars=True, digits=True, upper_case=True, lower_case=True)} for i in _limit()])
+        return _response([{'password': data.password(length=10, special_chars=True, digits=True,
+                                                     upper_case=True, lower_case=True)} for i in _limit()])
 
     @app.errorhandler(404)
     def page_not_found(e):
