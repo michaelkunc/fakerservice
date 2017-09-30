@@ -81,8 +81,7 @@ def create_app(config_name):
     @app.route(ep.street_address.url, methods=['GET'])
     @swag_from(ep.street_address.docs)
     def street_address():
-        return _response([{'street_address': data.street_address()} for i in
-                          _limit()])
+        return _single_field(ep.street_address.properties, ep.street_address.data)
 
     @app.route(ep.companies.url, methods=['GET'])
     @swag_from(ep.companies.docs)
@@ -94,8 +93,7 @@ def create_app(config_name):
     @app.route(ep.license_plates.url, methods=['GET'])
     @swag_from(ep.license_plates.docs)
     def license_plates():
-        return _response([{'license_plate': data.license_plate()} for i in
-                          _limit()])
+        return _single_field(ep.license_plates.properties, ep.license_plates.data)
 
     @app.route(ep.people.url, methods=['GET'])
     @swag_from(ep.people.docs)
@@ -106,46 +104,42 @@ def create_app(config_name):
     @app.route(ep.credit_cards.url, methods=['GET'])
     @swag_from(ep.credit_cards.docs)
     def credit_cards():
-        return _response([{'full_card_detail': data.credit_card_full()} for i in
-                          _limit()])
+        return _single_field(ep.credit_cards.properties, ep.credit_cards.data)
 
     @app.route(ep.credit_card_security_code.url, methods=['GET'])
     @swag_from(ep.credit_card_security_code.docs)
     def credit_card_security_code():
-        return _response([{'security_code': data.credit_card_security_code()}
-                          for i in _limit()])
+        return _single_field(ep.credit_card_security_code.properties, ep.credit_card_security_code.data)
 
     @app.route(ep.credit_card_expire.url, methods=['GET'])
     @swag_from(ep.credit_card_expire.docs)
     def credit_card_expire():
-        return _response([{'expiration_date': data.credit_card_expire()} for i
-                          in _limit()])
+        return _single_field(ep.credit_card_expire.properties, ep.credit_card_expire.data)
 
     @app.route(ep.url.url, methods=['GET'])
     @swag_from(ep.url.docs)
     def url():
-        return _response([{'url': data.url()} for i in _limit()])
+        return _single_field(ep.url.properties, ep.url.data)
 
     @app.route(ep.email.url, methods=['GET'])
     @swag_from(ep.email.docs)
     def email():
-        return _response([{'email': data.email()} for i in _limit()])
+        return _single_field(ep.email.properties, ep.email.data)
 
     @app.route(ep.mac_address.url, methods=['GET'])
     @swag_from(ep.mac_address.docs)
     def mac_address():
-        return _response([{'mac_address': data.mac_address()} for i in
-                          _limit()])
+        return _single_field(ep.mac_address.properties, ep.mac_address.data)
 
     @app.route(ep.username.url, methods=['GET'])
     @swag_from(ep.username.docs)
     def username():
-        return _response([{'username': data.user_name()} for i in _limit()])
+        return _single_field(ep.username.properties, ep.username.data)
 
     @app.route(ep.image_url.url, methods=['GET'])
     @swag_from(ep.image_url.docs)
     def image_url():
-        return _response([{'url': data.image_url()} for i in _limit()])
+        return _single_field(ep.image_url.properties, ep.image_url.data)
 
     @app.route(ep.ipv4.url, methods=['GET'])
     @swag_from(ep.ipv4.docs)

@@ -47,7 +47,7 @@ state_abbr = Endpoint(name='state_abbr', url='/addresses/state_abbreviations/',
 street_address = Endpoint(name='street_address', url='/addresses/street_addresses/',
                           properties=(['street_address']),
                           docs='../docs/addresses/street_addresses.yml',
-                          data=None)
+                          data=data.street_address)
 
 companies = Endpoint(name='companies', url='/companies/',
                      properties=('company_name', 'slogan'),
@@ -58,7 +58,7 @@ companies = Endpoint(name='companies', url='/companies/',
 license_plates = Endpoint(name='license_plates', url='/license_plates/',
                           properties=(['license_plate']),
                           docs='../docs/license_plates.yml',
-                          data=None
+                          data=data.license_plate
                           )
 
 people = Endpoint(name='people', url='/people/',
@@ -71,46 +71,46 @@ people = Endpoint(name='people', url='/people/',
 credit_cards = Endpoint(name='credit_cards', url='/credit_cards/full_cards/',
                         properties=(['full_card_detail']),
                         docs='../docs/credit_card.yml',
-                        data=None)
+                        data=data.credit_card_full)
 
 
 credit_card_security_code = Endpoint(name='credit_cards', url='/credit_cards/security_codes/',
                                      properties=(['security_code']),
                                      docs='../docs/security_code.yml',
-                                     data=None)
+                                     data=data.credit_card_security_code)
 
 
 credit_card_expire = Endpoint(name='credit_cards', url='/credit_cards/expiration_date/',
                               properties=(['expiration_date']),
                               docs='../docs/expiration_date.yml',
-                              data=None)
+                              data=data.credit_card_expire)
 
 
 url = Endpoint(name='url', url='/internet/url/',
                properties=(['url']),
                docs='../docs/internet/url.yml',
-               data=None)
+               data=data.url)
 
 email = Endpoint(name='email', url='/internet/email/',
                  properties=(['email']),
                  docs='../docs/internet/email.yml',
-                 data=None)
+                 data=data.email)
 
 mac_address = Endpoint(name='mac_address', url='/internet/mac_addresses/',
                        properties=(['mac_address']),
                        docs='../docs/internet/mac_address.yml',
-                       data=None)
+                       data=data.mac_address)
 
 
 username = Endpoint(name='username', url='/internet/usernames/',
                     properties=(['username']),
                     docs='../docs/internet/username.yml',
-                    data=None)
+                    data=data.user_name)
 
 image_url = Endpoint(name='image_url', url='/internet/image_urls/',
                      properties=(['url']),
                      docs='../docs/internet/image_urls.yml',
-                     data=None)
+                     data=data.image_url)
 
 ipv4 = Endpoint(name='ipv4', url='/internet/ipv4s/',
                 properties=(['ip']),
