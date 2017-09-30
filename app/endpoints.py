@@ -127,13 +127,33 @@ rgb_color = Endpoint(name='rgb_color', url='/colors/rgb_colors/',
                      docs='../docs/colors/rgb_colors.yml',
                      data=data.rgb_color)
 
-color_name = Endpoint(name='color_name', url='/colors/color_name/',
+color_name = Endpoint(name='color_name', url='/colors/color_names/',
                       properties=(['color_name']),
                       docs='../docs/colors/color_names.yml',
                       data=data.color_name)
+
+rgb_css_color = Endpoint(name='rgb_css_color', url='/colors/rgb_css_colors/',
+                         properties=(['rgb_css_color']),
+                         docs='../docs/colors/rgb_css_colors.yml',
+                         data=data.rgb_css_color)
+
+hex_color = Endpoint(name='hex_color', url='/colors/hex_colors/',
+                     properties=(['hex_color']),
+                     docs='../docs/colors/hex_colors.yml',
+                     data=data.hex_color)
+
+safe_hex_color = Endpoint(name='safe_hex_color', url='/colors/safe_hex_colors/',
+                          properties=(['safe_hex_color']),
+                          docs='../docs/colors/safe_hex_colors.yml',
+                          data=data.safe_hex_color)
+
+safe_color_name = Endpoint(name='safe_color_name', url='/colors/safe_color_names/',
+                           properties=(['safe_color_name']),
+                           docs='../docs/colors/safe_color_names.yml',
+                           data=data.safe_color_name)
 
 
 endpoint_list = [addresses, country, country_code,
                  military_state, military_ship, state_abbr, street_address, companies,
                  license_plates, people, credit_cards, credit_card_security_code, credit_card_expire, url, email, mac_address, username,
-                 image_url, ipv4, password, rgb_color, color_name]
+                 image_url, ipv4, password, rgb_color, color_name, rgb_css_color, hex_color, safe_hex_color, safe_color_name]

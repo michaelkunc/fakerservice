@@ -162,6 +162,26 @@ def create_app(config_name):
     def color_name():
         return _single_field(ep.color_name.properties, ep.color_name.data)
 
+    @app.route(ep.rgb_css_color.url, methods=['GET'])
+    @swag_from(ep.rgb_css_color.docs)
+    def rgb_css_color():
+        return _single_field(ep.rgb_css_color.properties, ep.rgb_css_color.data)
+
+    @app.route(ep.hex_color.url, methods=['GET'])
+    @swag_from(ep.hex_color.docs)
+    def hex_color():
+        return _single_field(ep.hex_color.properties, ep.hex_color.data)
+
+    @app.route(ep.safe_hex_color.url, methods=['GET'])
+    @swag_from(ep.safe_hex_color.docs)
+    def safe_hex_color():
+        return _single_field(ep.safe_hex_color.properties, ep.safe_hex_color.data)
+
+    @app.route(ep.safe_color_name.url, methods=['GET'])
+    @swag_from(ep.safe_color_name.docs)
+    def safe_color_name():
+        return _single_field(ep.safe_color_name.properties, ep.safe_color_name.data)
+
     @app.errorhandler(404)
     def page_not_found(e):
         return render_template('404.html'), 404

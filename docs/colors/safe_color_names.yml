@@ -1,0 +1,19 @@
+Returns a list of safe color names.
+---
+parameters:
+  - name: limit
+    in: path
+    type: integer
+    required: false
+    default: 10
+    description: Number of results to return
+definitions:
+  safe_color_names:
+    type: object
+responses:
+  200:
+    description: A list of safe_color_names.
+    schema:
+      $ref: '#/definitions safe_color_names'
+    examples:
+      safe_color_name: "black"
