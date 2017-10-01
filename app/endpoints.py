@@ -173,9 +173,29 @@ crypto_currency = Endpoint(name='crypto_currency', url='/currencies/crypto_curre
                            docs='../docs/currencies/crypto_currency_codes.yml',
                            data=data.cryptocurrency_code)
 
+file_extension = Endpoint(name='file_extension', url='/files/file_extensions/',
+                          properties=(['file_extension']),
+                          docs='../docs/files/file_extensions.yml',
+                          data=data.file_extension)
+
+file_path = Endpoint(name='file_path', url='/files/file_paths/',
+                          properties=(['file_path']),
+                          docs='../docs/files/file_paths.yml',
+                          data=data.file_path)
+
+mime_type = Endpoint(name='mime_type', url='/files/mime_types/',
+                          properties=(['mime_type']),
+                          docs='../docs/files/mime_types.yml',
+                          data=data.mime_type)
+
+file_name = Endpoint(name='file_name', url='/files/file_names/',
+                          properties=(['file_name']),
+                          docs='../docs/files/file_names.yml',
+                          data=data.file_name)
+
 
 endpoint_list = [addresses, country, country_code,
                  military_state, military_ship, state_abbr, street_address, companies,
                  license_plates, people, credit_cards, credit_card_security_code, credit_card_expire, url, email, mac_address, username,
                  image_url, ipv4, password, rgb_color, color_name, rgb_css_color, hex_color, safe_hex_color, safe_color_name, ean8,
-                 ean13, currency, crypto_currency]
+                 ean13, currency, crypto_currency, file_extension, file_path, mime_type, file_name]

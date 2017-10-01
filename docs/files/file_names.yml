@@ -1,0 +1,19 @@
+Returns a list of file names.
+---
+parameters:
+  - name: limit
+    in: path
+    type: integer
+    required: false
+    default: 100
+    description: Number of results to return
+definitions:
+  file_names:
+    type: object
+responses:
+  200:
+    description: A list of file_names.
+    schema:
+      $ref: '#/definitiona/file_names'
+    examples:
+      file_name: "esse.bmp"

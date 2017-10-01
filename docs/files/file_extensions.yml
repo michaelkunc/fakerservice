@@ -1,0 +1,19 @@
+Returns a list of file extensions.
+---
+parameters:
+  - name: limit
+    in: path
+    type: integer
+    required: false
+    default: 100
+    description: Number of results to return
+definitions:
+  file_extensions:
+    type: object
+responses:
+  200:
+    description: A list of file_extensions.
+    schema:
+      $ref: '#/definitiona/file_extensions'
+    examples:
+      file_extension: "jpeg"
