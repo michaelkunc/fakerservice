@@ -192,6 +192,16 @@ def create_app(config_name):
     def ean13():
         return _single_field(ep.ean13.properties, ep.ean13.data)
 
+    @app.route(ep.currency.url, methods=['GET'])
+    @swag_from(ep.currency.docs)
+    def currency():
+        return _single_field(ep.currency.properties, ep.currency.data)
+
+    @app.route(ep.crypto_currency.url, methods=['GET'])
+    @swag_from(ep.crypto_currency.docs)
+    def crypto_currency():
+        return _single_field(ep.crypto_currency.properties, ep.crypto_currency.data)
+
     @app.errorhandler(404)
     def page_not_found(e):
         return render_template('404.html'), 404
