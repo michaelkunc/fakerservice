@@ -163,9 +163,19 @@ ean13 = Endpoint(name='ean13', url='/barcode/ean13/',
                  docs='../docs/barcode/ean13.yml',
                  data=data.ean13)
 
+currency = Endpoint(name='currency', url='/currencies/currency_codes/',
+                    properties=(['currency']),
+                    docs='../docs/currencies/currency_codes.yml',
+                    data=data.currency_code)
+
+crypto_currency = Endpoint(name='crypto_currency', url='/currencies/crypto_currency_codes/',
+                           properties=(['crypto_currency']),
+                           docs='../docs/currencies/crypto_currency_codes.yml',
+                           data=data.cryptocurrency_code)
+
 
 endpoint_list = [addresses, country, country_code,
                  military_state, military_ship, state_abbr, street_address, companies,
                  license_plates, people, credit_cards, credit_card_security_code, credit_card_expire, url, email, mac_address, username,
                  image_url, ipv4, password, rgb_color, color_name, rgb_css_color, hex_color, safe_hex_color, safe_color_name, ean8,
-                 ean13]
+                 ean13, currency, crypto_currency]
