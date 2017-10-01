@@ -1,0 +1,19 @@
+Returns a list of file paths.
+---
+parameters:
+  - name: limit
+    in: path
+    type: integer
+    required: false
+    default: 100
+    description: Number of results to return
+definitions:
+  file_paths:
+    type: object
+responses:
+  200:
+    description: A list of file_paths.
+    schema:
+      $ref: '#/definitiona/file_paths'
+    examples:
+      file_path: "/dolor/laudantium.pptx"

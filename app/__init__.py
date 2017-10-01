@@ -202,6 +202,26 @@ def create_app(config_name):
     def crypto_currency():
         return _single_field(ep.crypto_currency.properties, ep.crypto_currency.data)
 
+    @app.route(ep.file_extension.url, methods=['GET'])
+    @swag_from(ep.file_extension.docs)
+    def file_extension():
+        return _single_field(ep.file_extension.properties, ep.file_extension.data)
+
+    @app.route(ep.file_path.url, methods=['GET'])
+    @swag_from(ep.file_path.docs)
+    def file_path():
+        return _single_field(ep.file_path.properties, ep.file_path.data)
+
+    @app.route(ep.mime_type.url, methods=['GET'])
+    @swag_from(ep.mime_type.docs)
+    def mime_type():
+        return _single_field(ep.mime_type.properties, ep.mime_type.data)
+
+    @app.route(ep.file_name.url, methods=['GET'])
+    @swag_from(ep.file_name.docs)
+    def file_name():
+        return _single_field(ep.file_name.properties, ep.file_name.data)
+
     @app.errorhandler(404)
     def page_not_found(e):
         return render_template('404.html'), 404
