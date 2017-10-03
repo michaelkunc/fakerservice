@@ -74,16 +74,21 @@ credit_cards = Endpoint(name='credit_cards', url='/credit_cards/full_cards/',
                         data=data.credit_card_full)
 
 
-credit_card_security_code = Endpoint(name='credit_cards', url='/credit_cards/security_codes/',
+credit_card_security_code = Endpoint(name='credit_card_security_code', url='/credit_cards/security_codes/',
                                      properties=(['security_code']),
                                      docs='../docs/security_code.yml',
                                      data=data.credit_card_security_code)
 
 
-credit_card_expire = Endpoint(name='credit_cards', url='/credit_cards/expiration_date/',
+credit_card_expire = Endpoint(name='credit_card_expire', url='/credit_cards/expiration_date/',
                               properties=(['expiration_date']),
                               docs='../docs/expiration_date.yml',
                               data=data.credit_card_expire)
+
+credit_card_provider = Endpoint(name='credit_card_provider', url='/credit_cards/providers/',
+                                properties=(['provider']),
+                                docs='../docs/providers.yml',
+                                data=data.credit_card_provider)
 
 
 url = Endpoint(name='url', url='/internet/url/',
@@ -196,6 +201,6 @@ file_name = Endpoint(name='file_name', url='/files/file_names/',
 
 endpoint_list = [addresses, country, country_code,
                  military_state, military_ship, state_abbr, street_address, companies,
-                 license_plates, people, credit_cards, credit_card_security_code, credit_card_expire, url, email, mac_address, username,
+                 license_plates, people, credit_cards, credit_card_security_code, credit_card_expire, credit_card_provider, url, email, mac_address, username,
                  image_url, ipv4, password, rgb_color, color_name, rgb_css_color, hex_color, safe_hex_color, safe_color_name, ean8,
                  ean13, currency, crypto_currency, file_extension, file_path, mime_type, file_name]
