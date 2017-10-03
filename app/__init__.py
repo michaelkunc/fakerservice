@@ -116,6 +116,11 @@ def create_app(config_name):
     def credit_card_expire():
         return _single_field(ep.credit_card_expire.properties, ep.credit_card_expire.data)
 
+    @app.route(ep.credit_card_provider.url, methods=['GET'])
+    @swag_from(ep.credit_card_provider.docs)
+    def credit_card_provider():
+        return _single_field(ep.credit_card_provider.properties, ep.credit_card_provider.data)
+
     @app.route(ep.url.url, methods=['GET'])
     @swag_from(ep.url.docs)
     def url():
