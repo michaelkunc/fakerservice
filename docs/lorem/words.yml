@@ -1,0 +1,19 @@
+Returns a list of lorem words.
+---
+parameters:
+  - name: limit
+    in: path
+    type: integer
+    required: false
+    default: 10
+    description: Number of results to return
+definitions:
+  words:
+    type: object
+responses:
+  200:
+    description: A list of lorem words.
+    schema:
+      $ref: '#/definitions words'
+    examples:
+      words: ['distinctio', 'corporis', 'minima']
