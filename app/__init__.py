@@ -227,6 +227,11 @@ def create_app(config_name):
     def file_name():
         return _single_field(ep.file_name.properties, ep.file_name.data)
 
+    @app.route(ep.ssn.url, methods=['GET'])
+    @swag_from(ep.ssn.docs)
+    def ssn():
+        return _single_field(ep.ssn.properties, ep.ssn.data)
+
     @app.errorhandler(404)
     def page_not_found(e):
         return render_template('404.html'), 404
