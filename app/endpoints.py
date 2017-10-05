@@ -209,10 +209,25 @@ job = Endpoint(name='job', url='/jobs/',
                docs='../docs/jobs.yml',
                data=data.job)
 
+words = Endpoint(name='words', url='/lorem/words/',
+                 properties=(['words']),
+                 docs='../docs/lorem/words.yml',
+                 data=data.words)
+
+paragraphs = Endpoint(name='paragraphs', url='/lorem/paragraphs/',
+                      properties=(['paragraphs']),
+                      docs='../docs/lorem/paragraphs.yml',
+                      data=data.paragraphs)
+
+sentence = Endpoint(name='sentence', url='/lorem/sentences/',
+                    properties=(['sentence']),
+                    docs='../docs/lorem/sentence.yml',
+                    data=data.sentence)
+
 
 endpoint_list = [addresses, country, country_code,
                  military_state, military_ship, state_abbr, street_address, companies,
                  license_plates, people, credit_cards, credit_card_security_code, credit_card_expire, credit_card_provider, url, email, mac_address, username,
                  image_url, ipv4, password, rgb_color, color_name, rgb_css_color, hex_color, safe_hex_color, safe_color_name, ean8,
                  ean13, currency, crypto_currency, file_extension, file_path, mime_type, file_name,
-                 ssn, job]
+                 ssn, job, words, paragraphs, sentence]

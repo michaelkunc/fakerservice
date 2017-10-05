@@ -1,0 +1,19 @@
+Returns a list of lorem sentences.
+---
+parameters:
+  - name: limit
+    in: path
+    type: integer
+    required: false
+    default: 10
+    description: Number of results to return
+definitions:
+  sentences:
+    type: object
+responses:
+  200:
+    description: A list of lorem sentences.
+    schema:
+      $ref: '#/definitions sentences'
+    examples:
+      sentences: 'Beatae facere iure iusto quidem.'
