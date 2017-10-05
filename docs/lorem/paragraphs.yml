@@ -1,0 +1,21 @@
+Returns a list of lorem paragraphs.
+---
+parameters:
+  - name: limit
+    in: path
+    type: integer
+    required: false
+    default: 10
+    description: Number of results to return
+definitions:
+  paragraphs:
+    type: object
+responses:
+  200:
+    description: A list of lorem paragraphs.
+    schema:
+      $ref: '#/definitions paragraphs'
+    examples:
+      paragraphs: ['Voluptas dignissimos similique nam modi eos saepe. Quibusdam nulla ea rerum consectetur. Ipsum quo dicta voluptates officiis.',
+ 'Odio pariatur officiis nisi suscipit. Tenetur vero cupiditate laudantium excepturi. Harum quidem dignissimos consectetur sint ullam dolores a. Quibusdam necessitatibus harum ad temporibus.',
+ 'Quos enim eaque debitis. Possimus sapiente ipsam sed iure. Expedita fugiat voluptate eos et. Eius tempora quaerat dolorem quisquam minus vero minus.']
