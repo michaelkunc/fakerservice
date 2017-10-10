@@ -252,6 +252,16 @@ def create_app(config_name):
     def sentence():
         return _single_field(ep.sentence.properties, ep.sentence.data)
 
+    @app.route(ep.word.url, methods=['GET'])
+    @swag_from(ep.word.docs)
+    def word():
+        return _single_field(ep.word.properties, ep.word.data)
+
+    @app.route(ep.text.url, methods=['GET'])
+    @swag_from(ep.text.docs)
+    def text():
+        return _single_field(ep.text.properties, ep.text.data)
+
     @app.errorhandler(404)
     def page_not_found(e):
         return render_template('404.html'), 404
