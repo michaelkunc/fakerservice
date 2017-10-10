@@ -229,10 +229,15 @@ word = Endpoint(name='word', url='/lorem/word/',
                 docs='../docs/lorem/word.yml',
                 data=data.word)
 
+text = Endpoint(name='text', url='/lorem/text/',
+                properties=(['text']),
+                docs='../docs/lorem/text.yml',
+                data=data.text)
+
 
 endpoint_list = [addresses, country, country_code,
                  military_state, military_ship, state_abbr, street_address, companies,
                  license_plates, people, credit_cards, credit_card_security_code, credit_card_expire, credit_card_provider, url, email, mac_address, username,
                  image_url, ipv4, password, rgb_color, color_name, rgb_css_color, hex_color, safe_hex_color, safe_color_name, ean8,
                  ean13, currency, crypto_currency, file_extension, file_path, mime_type, file_name,
-                 ssn, job, words, paragraphs, sentence, word]
+                 ssn, job, words, paragraphs, sentence, word, text]
