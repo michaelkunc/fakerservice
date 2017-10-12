@@ -262,6 +262,11 @@ def create_app(config_name):
     def text():
         return _single_field(ep.text.properties, ep.text.data)
 
+    @app.route(ep.phone_number.url, methods=['GET'])
+    @swag_from(ep.phone_number.docs)
+    def phone_number():
+        return _single_field(ep.phone_number.properties, ep.phone_number.data)
+
     @app.errorhandler(404)
     def page_not_found(e):
         return render_template('404.html'), 404

@@ -234,10 +234,15 @@ text = Endpoint(name='text', url='/lorem/text/',
                 docs='../docs/lorem/text.yml',
                 data=data.text)
 
+phone_number = Endpoint(name='phone_number', url='/phone_number/',
+                        properties=(['phone_number']),
+                        docs='../docs/phone_number.yml',
+                        data=data.phone_number)
+
 
 endpoint_list = [addresses, country, country_code,
                  military_state, military_ship, state_abbr, street_address, companies,
                  license_plates, people, credit_cards, credit_card_security_code, credit_card_expire, credit_card_provider, url, email, mac_address, username,
                  image_url, ipv4, password, rgb_color, color_name, rgb_css_color, hex_color, safe_hex_color, safe_color_name, ean8,
                  ean13, currency, crypto_currency, file_extension, file_path, mime_type, file_name,
-                 ssn, job, words, paragraphs, sentence, word, text]
+                 ssn, job, words, paragraphs, sentence, word, text, phone_number]
