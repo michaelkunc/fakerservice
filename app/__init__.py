@@ -277,6 +277,36 @@ def create_app(config_name):
     def boolean():
         return _single_field(ep.boolean.properties, ep.boolean.data)
 
+    @app.route(ep.locale.url, methods=['GET'])
+    @swag_from(ep.locale.docs)
+    def locale():
+        return _single_field(ep.locale.properties, ep.locale.data)
+
+    @app.route(ep.language_code.url, methods=['GET'])
+    @swag_from(ep.language_code.docs)
+    def language_code():
+        return _single_field(ep.language_code.properties, ep.language_code.data)
+
+    @app.route(ep.sha256.url, methods=['GET'])
+    @swag_from(ep.sha256.docs)
+    def sha256():
+        return _single_field(ep.sha256.properties, ep.sha256.data)
+
+    @app.route(ep.uuid4.url, methods=['GET'])
+    @swag_from(ep.uuid4.docs)
+    def uuid4():
+        return _single_field(ep.uuid4.properties, ep.uuid4.data)
+
+    @app.route(ep.md5.url, methods=['GET'])
+    @swag_from(ep.md5.docs)
+    def md5():
+        return _single_field(ep.md5.properties, ep.md5.data)
+
+    @app.route(ep.null_boolean.url, methods=['GET'])
+    @swag_from(ep.null_boolean.docs)
+    def null_boolean():
+        return _single_field(ep.null_boolean.properties, ep.null_boolean.data)
+
     @app.errorhandler(404)
     def page_not_found(e):
         return render_template('404.html'), 404

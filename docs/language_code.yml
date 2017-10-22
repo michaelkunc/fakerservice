@@ -1,0 +1,19 @@
+Returns a list of language_codes.
+---
+parameters:
+  - name: limit
+    in: path
+    type: integer
+    required: false
+    default: 10
+    description: Number of results to return
+definitions:
+  language_codes:
+    type: object
+responses:
+  200:
+    description: A list of language_codes.
+    schema:
+      $ref: '#/definitions language_codes'
+    examples:
+      language_codes: 'ht'
