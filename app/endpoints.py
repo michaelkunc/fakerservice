@@ -234,15 +234,58 @@ text = Endpoint(name='text', url='/lorem/text/',
                 docs='../docs/lorem/text.yml',
                 data=data.text)
 
-phone_number = Endpoint(name='phone_number', url='/phone_number/',
+phone_number = Endpoint(name='phone_number', url='/phone_numbers/',
                         properties=(['phone_number']),
                         docs='../docs/phone_number.yml',
                         data=data.phone_number)
 
 
-endpoint_list = [addresses, country, country_code,
+sha1 = Endpoint(name='sha1', url='/sha1s/',
+                properties=(['sha1']),
+                docs='../docs/sha1.yml',
+                data=data.sha1)
+
+
+boolean = Endpoint(name='boolean', url='/booleans/',
+                   properties=(['boolean']),
+                   docs='../docs/boolean.yml',
+                   data=data.boolean)
+
+locale = Endpoint(name='locale', url='/locales/',
+                  properties=(['locale']),
+                  docs='../docs/locale.yml',
+                  data=data.locale)
+
+language_code = Endpoint(name='language_code', url='/language_codes/',
+                         properties=(['language_code']),
+                         docs='../docs/language_code.yml',
+                         data=data.language_code)
+
+sha256 = Endpoint(name='sha256', url='/sha256/',
+                  properties=(['sha256']),
+                  docs='../docs/sha256.yml',
+                  data=data.sha256)
+
+uuid4 = Endpoint(name='uuid4', url='/uuid4/',
+                 properties=(['uuid4']),
+                 docs='../docs/uuid4.yml',
+                 data=data.uuid4)
+
+md5 = Endpoint(name='md5', url='/md5/',
+               properties=(['md5']),
+               docs='../docs/md5.yml',
+               data=data.md5)
+
+null_boolean = Endpoint(name='null_boolean', url='/null_boolean/',
+                        properties=(['null_boolean']),
+                        docs='../docs/null_boolean.yml',
+                        data=data.null_boolean)
+
+
+endpoint_list = (addresses, country, country_code,
                  military_state, military_ship, state_abbr, street_address, companies,
                  license_plates, people, credit_cards, credit_card_security_code, credit_card_expire, credit_card_provider, url, email, mac_address, username,
                  image_url, ipv4, password, rgb_color, color_name, rgb_css_color, hex_color, safe_hex_color, safe_color_name, ean8,
                  ean13, currency, crypto_currency, file_extension, file_path, mime_type, file_name,
-                 ssn, job, words, paragraphs, sentence, word, text, phone_number]
+                 ssn, job, words, paragraphs, sentence, word, text, phone_number, sha1, boolean,
+                 locale, language_code, sha256, uuid4, md5, null_boolean)

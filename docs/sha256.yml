@@ -1,0 +1,19 @@
+Returns a list of sha256.
+---
+parameters:
+  - name: limit
+    in: path
+    type: integer
+    required: false
+    default: 10
+    description: Number of results to return
+definitions:
+  sha256:
+    type: object
+responses:
+  200:
+    description: A list of sha256.
+    schema:
+      $ref: '#/definitions sha256'
+    examples:
+      sha256: 'e702b9db0e1fe90a6bb8476c30d6e2d85036e9445a095b0e8bfe92385fd86755'

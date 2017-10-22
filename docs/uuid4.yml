@@ -1,0 +1,19 @@
+Returns a list of uuid4.
+---
+parameters:
+  - name: limit
+    in: path
+    type: integer
+    required: false
+    default: 10
+    description: Number of results to return
+definitions:
+  uuid4:
+    type: object
+responses:
+  200:
+    description: A list of uuid4.
+    schema:
+      $ref: '#/definitions uuid4'
+    examples:
+      uuid4: '4709253d-0ce8-8284-280e-f3487ef2824b'
