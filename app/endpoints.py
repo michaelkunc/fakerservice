@@ -240,9 +240,21 @@ phone_number = Endpoint(name='phone_number', url='/phone_number/',
                         data=data.phone_number)
 
 
+sha1 = Endpoint(name='sha1', url='/sha1/',
+                properties=(['sha1']),
+                docs='../docs/sha1.yml',
+                data=data.sha1)
+
+
+boolean = Endpoint(name='boolean', url='/boolean/',
+                   properties=(['boolean']),
+                   docs='../docs/boolean.yml',
+                   data=data.boolean)
+
+
 endpoint_list = [addresses, country, country_code,
                  military_state, military_ship, state_abbr, street_address, companies,
                  license_plates, people, credit_cards, credit_card_security_code, credit_card_expire, credit_card_provider, url, email, mac_address, username,
                  image_url, ipv4, password, rgb_color, color_name, rgb_css_color, hex_color, safe_hex_color, safe_color_name, ean8,
                  ean13, currency, crypto_currency, file_extension, file_path, mime_type, file_name,
-                 ssn, job, words, paragraphs, sentence, word, text, phone_number]
+                 ssn, job, words, paragraphs, sentence, word, text, phone_number, sha1, boolean]

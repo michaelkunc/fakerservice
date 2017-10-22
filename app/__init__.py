@@ -267,6 +267,16 @@ def create_app(config_name):
     def phone_number():
         return _single_field(ep.phone_number.properties, ep.phone_number.data)
 
+    @app.route(ep.sha1.url, methods=['GET'])
+    @swag_from(ep.sha1.docs)
+    def sha1():
+        return _single_field(ep.sha1.properties, ep.sha1.data)
+
+    @app.route(ep.boolean.url, methods=['GET'])
+    @swag_from(ep.boolean.docs)
+    def boolean():
+        return _single_field(ep.boolean.properties, ep.boolean.data)
+
     @app.errorhandler(404)
     def page_not_found(e):
         return render_template('404.html'), 404
